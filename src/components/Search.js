@@ -13,8 +13,8 @@ function Search({ pokemon, setPokemon }) {
           ref={inputRef}
           onChange={() => {
             const wordLength = inputRef.current.value.length;
-            if (wordLength) {
-              const result = pokemon.filter((item) => {
+            if (wordLength > 0) {
+              let result = pokemon.filter((item) => {
                 console.log(item.name.slice(0, wordLength));
                 return (
                   item.name.slice(0, wordLength) === inputRef.current.value
@@ -22,7 +22,7 @@ function Search({ pokemon, setPokemon }) {
               });
               setPokemon(result);
             } else {
-              fetch("http://localhost:3000/pokemon")
+              fetch("http://localhost:3001/pokemon")
                 .then((resp) => resp.json())
                 .then((data) => {
                   setPokemon(data);

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Form } from "semantic-ui-react";
 
-function PokemonForm({ pokemon, setPokemon }) {
+function PokemonForm({ addPokemon }) {
   const [name, setName] = useState("");
   const [frontUrl, setFrontUrl] = useState("");
   const [backUrl, setBackUrl] = useState("");
@@ -29,7 +29,7 @@ function PokemonForm({ pokemon, setPokemon }) {
             },
             body: JSON.stringify(newObj),
           });
-          setPokemon([...pokemon, newObj]);
+          addPokemon(newObj);
         }}
       >
         <Form.Group widths="equal">

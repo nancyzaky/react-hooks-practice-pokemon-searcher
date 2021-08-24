@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "semantic-ui-react";
 
-function PokemonCard({ item }) {
-  const { id, name, sprites, hp } = item;
-  console.log(sprites);
+function PokemonCard({ id, name, sprites, hp }) {
   const [front, setFront] = useState(true);
   return (
     <Card key={id}>
